@@ -1,0 +1,117 @@
+#uploadform {
+  text-align: center;
+  text-decoration: solid;
+  text-shadow: #010022;
+  color: aquamarine;
+}
+
+.ds{
+  cursor: pointer;
+}
+
+#emc {
+  color: #FEBE10;
+  background-color: #02006d;
+  width: 20%;
+  text-align: center;
+}
+
+select {
+  background: #02006d;
+  color: #FEBE10;
+  width: fit-content;
+}
+
+.dccheckbox {
+  display: block;
+  text-align: left;
+  margin-left: 45%;
+}
+
+.gamecss {
+  position: relative;
+  left: -2%;
+}
+
+.uploaddecide {
+  margin-right: 30%;
+  justify-content: right;
+  margin-left: 33%;
+  margin-top: -75%;
+}
+
+.uploaddecide label {
+  margin-right: 25%;
+  float: right;
+  font-size: 150%;
+  color: #00fff2;
+}
+
+.uploaddecide > input {
+  margin-left: 20%;
+  margin-top: 1.6%;
+  cursor: pointer;
+}
+
+h2{
+  text-align: center;
+  color: #00fff2;
+}
+
+#appuploaddiv{
+  position: relative;
+  top: -5%;
+  margin-top: -10%;
+}
+
+#newsuploaddiv{
+  position: relative;
+  top: 10px;
+  color: #00fff2;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.rating, .newsrating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.rating>input, .newsrating>input {
+  position: relative;
+  margin-top: 6px;
+  left: -2.75%;
+  width: 15px;
+  opacity: 0;
+  z-index: 1;
+}
+
+.rating>label, .newsrating>label {
+  position: relative;
+  width: 50px;
+  font-size: 40px;
+  color: #FFD700;
+  cursor: pointer;
+}
+
+.rating>label::before, .newsrating>label::before {
+  content: "\2605";
+  position: absolute;
+  opacity: 0;
+}
+
+.rating>input:checked~label:before, .newsrating>input:checked~label:before {
+  opacity: 1;
+}
+
+#newsclick, #appclick{
+  position: relative;
+  left: 3%;
+}
+
+.appnamediv{
+  position: relative;
+  left: 25%;
+}

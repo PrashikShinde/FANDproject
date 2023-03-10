@@ -1,0 +1,10 @@
+.feedbackform{
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+
+h2, #fi{
+  position: relative;
+  left: 4%;
+}

@@ -1,0 +1,39 @@
+*{
+  height: min-content;
+}
+
+.leftcont{
+    background:#00496b;
+    float: left;
+    width: 25%;
+    height:130vw;
+    text-decoration: none;
+    color: wheat;
+    text-align: center;
+    align-content: center;
+    display: block;
+    margin-top: -5.75%;
+
+}
+
+.leftdowncont a p{
+    color: wheat;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 4px solid #00fff2;
+    text-align: center;
+}
+
+.rightcont #profiledetails, #contactdetails, #workdetails, #yourdata{
+  display: block;
+}
+
+.rightcont{
+    position: relative;
+    text-align: center;
+    align-content: center;
+}
+
+hr{
+  height: 2px;
+}

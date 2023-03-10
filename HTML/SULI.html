@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<!-- <link rel="shortcut icon" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css"> -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="CSS/SULI.css" rel="stylesheet">
+	<title>FAND</title>
+	<meta Access-Control-Allow-Origin="*">
+</head>
+
+<body id="logsign">
+	<div class="logosect">
+		<img class="logo" src="CSS/Images/FAND Logo.png" alt="FAND" width="200px">
+	</div>
+	<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+						<input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+						<label for="reg-log"></label>
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+									<div class="center-wrap">
+										<form id="logsign" action="suli.php" method="post">
+										<div class="section text-center" id="loginform">
+											<h4 class="mb-4 pb-3">Log In</h4>
+											<div class="form-group">
+												<input type="email" name="logemail" class="form-style"
+													placeholder="Your Email" id="logemail" required><br>
+											</div>
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style"
+													placeholder="Your Password" id="logpass" required>
+											</div>
+											<button type="submit" class="btn mt-4" id="logbut">Log
+												In</button><br>
+											<a class="btn mt-4" id="fbli">
+												<img src="CSS/Images/fblogo.png" alt="Log In With Facebook"
+													class="icon">&nbsp;&nbsp;
+												Facebook
+											</a>
+											&nbsp;&nbsp;&nbsp;
+											<a href="#" class="btn mt-4" id="goli">
+												<img src="CSS/Images/gglogo.png" alt="Log In With Google"
+													class="icon">&nbsp;&nbsp;
+												Google
+											</a>
+											<p class="mb-0 mt-4 text-center"><a href="#0" class="link"
+													id="fgp">Forgot your
+													password?</a></p>
+										</div>
+									</form>
+								</div>
+
+								</div>
+								<div class="card-back">
+									<div class="center-wrap">
+										<form id="logsign2" action="suli.php" method="post">
+										<div class="section text-center" id="signupform">
+											<h4 class="mb-4 pb-3">Sign Up</h4>
+											<div class="form-group">
+												<input type="text" name="signfname" class="form-style"
+													placeholder="Your First Name" id="signfname" required>
+											</div>
+											<div class="form-group mt-2">
+												<input type="text" name="signlname" class="form-style"
+													placeholder="Your Last Name	" id="signlname" required>
+											</div>
+											<div class="form-group mt-2">
+												<input type="email" name="signemail" class="form-style"
+													placeholder="Your Email" id="signemail" required>
+											</div>
+
+											<div class="form-group mt-2">
+												<input type="password" name="signpass" class="form-style"
+													placeholder="Your Password" id="signpass" required>
+											</div>
+											<div class="form-group mt-2">
+												<input type="password" name="signconpass" class="form-style"
+													placeholder="Confirm Password" id="signconpass" required>
+											</div>
+											<button type="submit" class="btn mt-4" id="sub">Sign
+												Up</button>
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
