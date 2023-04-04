@@ -1,3 +1,11 @@
+<?php
+session_start();
+echo $_SESSION['emailid'];
+echo $_SESSION['uid'];
+require  "access.php";
+?>
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,19 +26,19 @@
         <span></span>
         <span></span>
         <ul id="menu">
-          <a href="PostHome.html">
+          <a href="PostHome.php">
             <li>Home</li>
           </a>
-          <a href="Profile.html">
+          <a href="Profile.php">
             <li>Profile</li>
           </a>
-          <a href="Upload.html">
+          <a href="Upload.php">
             <li>Upload</li>
           </a>
-          <a href="Review.html">
+          <a href="Review.php">
             <li>Review</li>
           </a>
-          <a href="Feedback.html">
+          <a href="Feedback.php">
             <li>Feedback</li>
           </a>
         </ul>

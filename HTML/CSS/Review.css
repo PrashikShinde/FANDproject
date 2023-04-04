@@ -1,0 +1,35 @@
+#sfr{
+    position: relative;
+    text-align: center;
+    align-content: center;
+    left: -2%;
+}
+
+body{
+    height: 150vw;
+}
+
+#menutoggle{
+    height: max-content;
+}
+
+h2{
+    text-align: center;
+}
+
+table, th, td{
+    border: 2px solid #ccc;
+    background: #040013;
+    align-content: center;
+    text-align: center;
+}
+
+#newsreviewtable{
+    position: absolute;
+    left: 15%;
+    top: 33%;
+}
+#newsreviewtable th, #newsreviewtable td{
+    padding: 10px;
+}
+
