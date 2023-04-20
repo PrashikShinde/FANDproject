@@ -1,14 +1,15 @@
 <?php
+session_start();
 $lemail = $_GET['logemail'];
 $lpass = md5($_GET['logpass']);
+
+$loginsuc;
 
 $con = new mysqli('localhost', 'root', '', 'fand');
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 } else {
-    // $sql = "SELECT pass FROM `suli` where=?";
     $sqlqry = "SELECT `pass`,`uid` FROM `suli` where `email`='$lemail'";
-    // $sqlqry->bind_param("s",$lemail);
     $result = mysqli_query($con,$sqlqry);
     $pass =  mysqli_fetch_assoc($result);
     echo "<pre>";
@@ -16,17 +17,20 @@ if ($con->connect_error) {
     echo "</pre>"; 
     if($pass['pass']==$lpass){
         echo "login successfull";
-        session_start();
         $_SESSION['id']=session_id();
         $_SESSION['uid'] = $pass['uid']; 
         $_SESSION['emailid'] = $lemail;
-        header('Location: http://localhost:8080/fand/html/PostHome.php');
-        // header('Location: http://localhost:8080/fand/html/Home.php');
+        header('Location: ./PostHome.php');
+        $loginsuc = 1;
     }
     else{
+        $loginsuc = 2;
         echo "login failed";
+        header('Location: ./SULI.php');
+
     }
     $con->close();
 }
+$_SESSION['lis'] = $loginsuc;
 
 ?>

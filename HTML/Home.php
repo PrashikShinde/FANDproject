@@ -1,13 +1,6 @@
 <?php
 session_start();
 ?>
-<?php
-if(!isset($_SESSION['emailid'])){
-  echo "log in";
-} else{
-  header('Location: http://localhost:8080/fand/html/PostHome.php');
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,15 +8,17 @@ if(!isset($_SESSION['emailid'])){
 <head>
   <link rel="stylesheet" href="CSS/Home.css">
   <link rel="stylesheet" href="CSS/Common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet"
     type="text/css">
 </head>
 
-<script>
+<script>0
   function clickBody(clickb){
     {
       document.getElementById('click').onclick(
-        location.replace('SULI.html')
+        location.replace('SULI.php')
       ); 
     }
   }
@@ -161,8 +156,14 @@ if(!isset($_SESSION['emailid'])){
       </div>
     </div>
   </header>
-  <div class="toptable">
+  <div class="toptable" style="padding-top: 700px;">
+    <?php require "./toptable.php"; ?>
   </div>
 </body>
 
 </html>
+<?php
+  echo '<script>
+  swal("Log In", "Kindly Log In To View This Page", "warning");
+  </script>';
+?>

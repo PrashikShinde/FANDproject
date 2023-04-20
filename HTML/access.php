@@ -1,7 +1,7 @@
 <?php 
 if(isset($_SESSION['emailid'])){
-    echo "logged in";
+    $logstat= "logged in";
 } else{
-    header('Location: http://localhost:8080/fand/html/Home.php');
+    header('Location: ./Home.php');
 }
 ?>

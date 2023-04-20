@@ -2,11 +2,12 @@
     position: relative;
     text-align: center;
     align-content: center;
-    left: -2%;
+    left: -1%;
 }
 
 body{
     height: 150vw;
+    overflow-x: auto;
 }
 
 #menutoggle{
@@ -20,16 +21,16 @@ h2{
 table, th, td{
     border: 2px solid #ccc;
     background: #040013;
+    color: rgb(189, 255, 233);
     align-content: center;
     text-align: center;
 }
 
 #newsreviewtable{
     position: absolute;
-    left: 15%;
+    left: 25px;
     top: 33%;
 }
 #newsreviewtable th, #newsreviewtable td{
     padding: 10px;
 }
-

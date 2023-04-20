@@ -1,0 +1,30 @@
+html, body{
+    background-color: aquamarine;
+    color: rgb(0, 0, 28);
+    align-content: center;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+hr{
+    height: 2px;
+    background-color: crimson;
+}
+
+label{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+#emailid{
+    width: 30%;
+    font-size: larger;
+}
+
+.reset{
+background-color: rgb(0, 0, 28);
+color: aquamarine;
+border-radius: 10%;
+width: 15%;
+font-size: x-large;
+}

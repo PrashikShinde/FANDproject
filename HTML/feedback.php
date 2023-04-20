@@ -1,6 +1,5 @@
 <?php
 session_start();
-// echo $_SESSION['emailid'];
 ?>
 <?php
 require  "access.php";
@@ -44,7 +43,7 @@ require  "access.php";
     <div class="logodiv">
       <img src="CSS/Images/FAND Logo.png" alt="Fraud Application & News Detection" class="logo" height="150px">
     </div>
-    <a id="logout" onclick="logout()">Log Out</a>
+    <a id="logout" href="./logout.php">Log Out</a>
   </header>
   <div class="feedbackform">
     <form action="feedbacks.php" name="Feedback" id="feedback"  enctype="multipart/form-data" method="post">
@@ -52,9 +51,9 @@ require  "access.php";
       <label for="name">Name: </label><br><br>
       <input type="text" name="name" id="name" required><br><br>
       <label for="email">Email: </label><br><br>
-      <input type="email" name="email" id="email"><br><br>
+      <input type="email" name="email" id="email" required><br><br>
       <label for="roc">Reason For Contact: </label><br><br>
-      <select name="roc" id="roc">
+      <select name="roc" id="roc" required>
         <option style="display: none;" selected>Select: </option>
         <option value="suggestion">Suggestion</option>
         <option value="request">Request</option>
@@ -65,10 +64,20 @@ require  "access.php";
       <label for="fi[]">Provide screenshot(if available): </label><br><br>
       <input type="file" name="fi[]" id="fi"><br><br>
       <label for="mou">Messsage For Us:</label><br><br>
-      <textarea name="mou" id="mou" cols="30" rows="10"></textarea><br><br>
+      <textarea name="mou" id="mou" cols="30" rows="10" required></textarea><br><br>
       <input type="submit" value="Submit">
     </form>
   </div>
 </body>
 
 </html>
+
+<?php
+if(isset($_SESSION['fus'])){
+  echo  '<script>
+	swal("Feedback is uploaded successfully!", "Thank You For Your Feedback!", "success");
+	</script>';
+  unset($_SESSION['fus']);
+}
+
+?>

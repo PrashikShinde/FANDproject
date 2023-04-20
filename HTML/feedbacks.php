@@ -18,8 +18,10 @@ if ($con->connect_error) {
     $query->execute();
     $query->close();
     $con->close();
-  header('Location: http://localhost:8080/fand/html/Feedback.php');
+  $fusuc = 1;
+    header('Location: ./Feedback.php');
+
   }
 
-
+$_SESSION['fus']=$fusuc;
 ?>

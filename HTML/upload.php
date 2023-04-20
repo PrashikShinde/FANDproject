@@ -1,6 +1,5 @@
 <?php
 session_start();
-// echo $_SESSION['emailid'];
 ?>
 <?php
 require  "access.php";
@@ -47,7 +46,7 @@ require  "access.php";
       <img src="CSS/Images/FAND Logo.png" alt="Fraud Application & News Detection" class="logo" height="150px">
     </div>
 
-    <a id="logout" onclick="logout()">Log Out</a>
+    <a id="logout" href="./logout.php">Log Out</a>
 
   </header>
 
@@ -63,7 +62,7 @@ require  "access.php";
       <label for="heading">Title/Headline of news</label><br><br>
       <input type="text" id="heading" name="heading" required><br><br>
       <label for="doi">Date Of Incident: </label><br><br>
-      <input type="date" name="doi" id="doi"><br><br>
+      <input type="date" name="doi" id="doi" required><br><br>
       <label for="genrenews">Genre of news: </label><br><br>
       <select id="newsdropdown" name="genrenews" required>
         <option style="display: none;" selected>Select: </option>
@@ -129,7 +128,7 @@ require  "access.php";
       <br><br><br><br>
       <label for="emc">Extra memory consumption: </label>&nbsp;&nbsp;&nbsp;
       <input type="number" id="emc" name="emc" style="width: min-content;">
-      <select name="sizeform" class="sizeform">
+      <select name="sizeform" class="sizeform" required>
         <option style="display: none;" selected>Select: </option>
         <option value="KB">KB</option>
         <option value="MB">MB</option>
@@ -204,11 +203,11 @@ require  "access.php";
       </select><br><br>
       <div class="dccheckbox" required>
         <label for="devcom">Device Compatibility: </label><br><br>
-        <input type="checkbox" name="devcom[]" id="mac/">MAC PC/Laptop<br><br>
-        <input type="checkbox" name="devcom[]" id="windows/">Windows PC/Laptop<br><br>
-        <input type="checkbox" name="devcom[]" id="ios/">IOS phones<br><br>
-        <input type="checkbox" name="devcom[]" id="android/">Android Devices<br><br>
-        <input type="checkbox" name="devcom[]" id="other/">Other Devices
+        <input type="checkbox" name="devcom[]" value="mac/">MAC PC/Laptop<br><br>
+        <input type="checkbox" name="devcom[]" value="windows/">Windows PC/Laptop<br><br>
+        <input type="checkbox" name="devcom[]" value="ios/">IOS phones<br><br>
+        <input type="checkbox" name="devcom[]" value="android/">Android Devices<br><br>
+        <input type="checkbox" name="devcom[]" value="other/">Other Devices
         <br><br>
       </div>
       <label for="info">Information about app/<br>Summary about functionalities: </label><br><br>

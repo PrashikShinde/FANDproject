@@ -1,4 +1,5 @@
 <?php
+session_start();
 $uid = $_SESSION['uid'];
 $appname = $_POST['appname'];
 $appsize = $_POST['downloadsize'];
@@ -25,11 +26,13 @@ $con = new mysqli('localhost', 'root', '', 'fand');
 if ($con->connect_error) {
   die("Connection failed: " . $con->connect_error);
 } else {
-  $sqlqry = $con->prepare("INSERT INTO `app_upload` (`uid`, `appname`, `appsize`, `emc`, `emsf`, `applogo` , `applink` , `genre`, `appgenretype`, `gamegenretype`, `devcomp`, `summary`, `comment`, `rating`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
+  $sqlqry = $con->prepare("INSERT INTO `app_upload` (`uid`, `appname`, `appsize`, `emc`, `emsf`, `applogo` , `applink` , `genre`, `appgenretype`, `gamegenretype`, `devcomp`, `summary`, `comment`, `rating`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
   $sqlqry->bind_param("isiisssssssssi", $uid, $appname, $appsize, $emc, $emsf, $applogo, $applink, $genre, $appgenretype, $gamegenretype, $devcomp, $summary, $comment, $rating);
   $sqlqry->execute();
   $sqlqry->close();
   $con->close();
-  header('Location: http://localhost/cwh/fand/html/Review.html');
+  $ausuc=1;
+  header('Location: ./Review.php');
 }
-?>
+$_SESSION['aus']=$ausuc;
+?>  

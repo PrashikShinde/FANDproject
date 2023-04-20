@@ -1,4 +1,5 @@
 <?php
+session_start();
 $uid = $_SESSION['uid'];
 $area = $_POST['locality'];
 $link = $_POST['newslink'];
@@ -16,11 +17,13 @@ $con = new mysqli('localhost', 'root', '', 'fand');
 if ($con->connect_error) {
   die("Connection failed: " . $con->connect_error);
 } else {
-  $sqlqry = $con->prepare("INSERT INTO `news_upload` (`uid`, `area`, `link`, `title`, `doi`, `ngenre`, `ninfo`, `ncomment`, `nrating`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+  $sqlqry = $con->prepare("INSERT INTO `news_upload` (`uid`, `area`, `link`, `title`, `doi`, `ngenre`, `ninfo`, `ncomment`, `nrating`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
   $sqlqry->bind_param('isssssssi', $uid, $area, $link, $title, $doi, $ngenre, $ninfo, $ncomment, $nrating);
-  $sqlqry->execute();
+  $sqlqry->execute(); 
   $sqlqry->close();
   $con->close();
-  header('Location: http://localhost:8080/fand/html/Review.php');
+  header('Location: ./Review.php');
+  $nusuc=1;
 }
+$_SESSION['nus']=$nusuc;
 ?>

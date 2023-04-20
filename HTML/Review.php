@@ -11,10 +11,8 @@ $con = new mysqli('localhost', 'root', '', 'fand');
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 } else {
-    $sql = "SELECT * FROM app_upload ORDER BY id DESC";
-    $sql2 = "SELECT * FROM news_upload ORDER BY nid DESC";
+    $sql = "SELECT * FROM app_upload ORDER BY aid DESC";
     $result = $con->query($sql);
-    $result2 = $con->query($sql2);
     $con->close();
 }
 ?>
@@ -25,6 +23,8 @@ if ($con->connect_error) {
 <head>
     <link rel="stylesheet" href="CSS/Common.css">
     <link rel="stylesheet" href="CSS/Review.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body class="gradient">
@@ -57,9 +57,9 @@ if ($con->connect_error) {
         <div class="logodiv">
             <img src="CSS/Images/FAND Logo.png" alt="Fraud Application & News Detection" class="logo" height="150px">
         </div>
-        <!-- <a id="logout" onclick="logout()">Log Out</a> -->
+        <a id="logout" href="./logout.php">Log Out</a>
     </header>
-    <h2>Review</h2>
+    <h2 style="margin-left:36px;">Review</h2>
     <div id="sfr" style="visibility: visible;"><br>
         <label for="appornews">Select data type to review: </label><br><br>
         <input type="radio" name="appornews" id="Application">Application<br>
@@ -82,14 +82,14 @@ if ($con->connect_error) {
                 <th>Summary/Info</th>
                 <th>Comment</th>
                 <th>Rating</th>
-                <!-- <th>View/Edit</th> -->
+                <th>View/Edit</th>
             </tr>
             <?php
             while ($rows = $result->fetch_assoc()) {
                 ?>
                 <tr>
                     <td>
-                        <?php echo $rows['id']; ?>
+                        <?php echo $rows['aid']; ?>
                     </td>
                     <td>
                         <?php echo '<img src="./ImagesFromUser/Application/' . $rows['applogo'] . '" style="width:128px;height:128px">'; ?>
@@ -112,7 +112,7 @@ if ($con->connect_error) {
                     </td>
                     <td>
                         <?php
-                        if ($rows['genre'] == 'Application') {
+                        if ($rows['genre'] == 'app') {
                             echo $rows['appgenretype'];
                         } else {
                             echo $rows['gamegenretype'];
@@ -130,7 +130,8 @@ if ($con->connect_error) {
                     <td>
                         <?php echo $rows['rating']; ?>
                     </td>
-                    <!-- <td><button id="appviewbtn">View</button></td> -->
+                    <td><button id="appviewbtn" onclick="window.location.href='./IndividualAppReview.php?id=<?= $rows['aid'] ?>'">View/Edit
+                </button></td>
                 </tr>
                 <?php
             }
@@ -151,10 +152,18 @@ if ($con->connect_error) {
                 <th>Summary</th>
                 <th>Comment</th>
                 <th>Rating</th>
-                <!-- <th>View</th> -->
+                <th>View/Edit</th>
             </tr>
             <?php
-            while ($rows = $result->fetch_assoc()) {
+            $con = new mysqli('localhost', 'root', '', 'fand');
+            if ($con->connect_error) {
+                die("Connection failed: " . $con->connect_error);
+            } else {
+                $sql2 = "SELECT * FROM news_upload ORDER BY nid DESC";
+                $result2 = $con->query($sql2);
+                $con->close();
+            }
+            while ($rows = $result2->fetch_assoc()) {
                 ?>
                 <tr>
                     <td>
@@ -184,7 +193,8 @@ if ($con->connect_error) {
                     <td>
                         <?php echo $rows['nrating']; ?>
                     </td>
-                    <!-- <td><button id="newsviewbtn">View</button></td> -->
+                    <td><button id="newsviewbtn" onclick="window.location.href='./IndividualNewsReview.php?id=<?= $rows['nid'] ?>'">View/Edit
+                </button></td>
                 </tr>
                 <?php
             }
@@ -195,3 +205,22 @@ if ($con->connect_error) {
 </body>
 
 </html>
+
+<?php
+if(isset($_SESSION['aus'])){
+    echo  '<script>
+	swal("App Uploaded Successfully!", "Click On View/Edit Button To View The App Data In Deatils!!", "success");
+	</script>';
+    unset($_SESSION['aus']);
+
+}
+
+if(isset($_SESSION['nus'])){
+    echo  '<script>
+	swal("News Uploaded Successfully!", "Click On View/Edit Button To View The News Data In Deatils!!", "success");
+	</script>';
+    unset($_SESSION['nus']);
+
+}
+
+?>
