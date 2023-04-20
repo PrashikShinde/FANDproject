@@ -25,11 +25,11 @@ if (isset($_POST["reset"])) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'fand.project.2023@gmail.com';
-        $mail->Password = 'lvffxarmavorbopv';
+        $mail->Username = 'YourEmailId';
+        $mail->Password = 'YourEmailPass';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
-        $mail->setFrom('fand.project.2023@gmail.com');
+        $mail->setFrom('YourEmailId');
         $mail->addAddress($_POST["emailid"]);
         $mail->isHTML(true);
         $mail->Subject = "Password Reset OTP";
